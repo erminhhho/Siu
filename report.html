@@ -1,0 +1,70 @@
+<div class="container">
+  <h2 class="mb-4">Relatório da Audiência</h2>
+  <p class="text-muted mb-4">Relatório consolidado com todas as informações para usar durante a audiência.</p>
+
+  <div class="card shadow-sm">
+    <div class="card-body p-4">
+      <div id="relatorioContent">
+        <!-- Seção de Dados do Autor -->
+        <div class="relatorio-section mb-4">
+          <h3 class="border-bottom pb-2 mb-3">Dados do Autor</h3>
+          <div class="row" id="relatorioAutor">
+            <!-- Será preenchido dinamicamente pelo JavaScript -->
+            <p class="text-muted">Carregando dados do autor...</p>
+          </div>
+        </div>
+
+        <!-- Seção de Dados do Processo -->
+        <div class="relatorio-section mb-4">
+          <h3 class="border-bottom pb-2 mb-3">Dados do Processo</h3>
+          <div class="row" id="relatorioProcesso">
+            <!-- Será preenchido dinamicamente pelo JavaScript -->
+            <p class="text-muted">Carregando dados do processo...</p>
+          </div>
+        </div>
+
+        <!-- Seção de Provas -->
+        <div class="relatorio-section mb-4">
+          <h3 class="border-bottom pb-2 mb-3">Provas</h3>
+          <div class="row" id="relatorioProvas">
+            <!-- Será preenchido dinamicamente pelo JavaScript -->
+            <p class="text-muted">Carregando provas...</p>
+          </div>
+        </div>
+
+        <!-- Seção de Contestação -->
+        <div class="relatorio-section mb-4">
+          <h3 class="border-bottom pb-2 mb-3">Contestação do INSS</h3>
+          <div class="row" id="relatorioContestacao">
+            <!-- Será preenchido dinamicamente pelo JavaScript -->
+            <p class="text-muted">Carregando dados da contestação...</p>
+          </div>
+        </div>
+
+        <!-- Seção de Entrevistas -->
+        <div class="relatorio-section mb-4">
+          <h3 class="border-bottom pb-2 mb-3">Entrevistas</h3>
+          <div class="row" id="relatorioEntrevistas">
+            <!-- Será preenchido dinamicamente pelo JavaScript -->
+            <p class="text-muted">Carregando dados das entrevistas...</p>
+          </div>
+        </div>
+
+        <!-- Seção de Conclusão -->
+        <div class="relatorio-section">
+          <h3 class="border-bottom pb-2 mb-3">Conclusão</h3>
+          <div class="form-floating">
+            <textarea class="form-control" id="conclusao" placeholder="Conclusão" style="height: 150px"></textarea>
+            <label for="conclusao">Observações finais e estratégia para a audiência</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-end mt-4">
+        <button type="button" class="btn btn-primary px-4" id="btnImprimirRelatorio">
+          <i class="bi bi-printer me-2"></i> Imprimir Relatório
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="container page-fade">
+  <h2 class="mb-3">Provas do Processo</h2>
+  <p class="text-muted mb-4">Registre as provas documentais disponíveis para a audiência.</p>
+
+  <div class="card shadow-sm mb-4">
+    <div class="card-body p-4">
+      <h5 class="border-bottom pb-2 mb-3">Provas Documentais</h5>
+
+      <div class="mb-3">
+        <div class="d-flex align-items-center">
+          <div class="form-floating flex-grow-1">
+            <input type="text" class="form-control" id="searchProva" placeholder="Pesquisar ou adicionar nova prova" name="searchProva">
+            <label for="searchProva">Pesquisar ou adicionar nova prova</label>
+          </div>
+          <button type="button" class="btn btn-sm btn-primary rounded-circle ms-2 add-btn" id="btnAddNovaProva" title="Adicionar Prova">
+            <i class="bi bi-plus"></i>
+          </button>
+        </div>
+        <div id="searchResults" class="list-group mt-2 search-results">
+          <!-- Resultados da pesquisa aparecerão aqui -->
+        </div>
+      </div>
+
+      <ul class="list-group list-group-flush" id="provasDocumentais">
+        <!-- As provas adicionadas aparecerão aqui -->
+      </ul>
+
+      <div class="alert alert-info mt-3" id="infoProvas" style="display: none;">
+        <i class="bi bi-info-circle-fill me-2"></i>
+        <span id="infoProvasText">Digite para pesquisar tipos de prova ou adicione uma nova.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card shadow-sm">
+    <div class="card-body p-4">
+      <h5 class="border-bottom pb-2 mb-3">Observações</h5>
+      <div class="form-floating">
+        <textarea class="form-control" id="observacoesProvas" placeholder="Observações sobre as provas" name="observacoesProvas" style="height: 120px"></textarea>
+        <label for="observacoesProvas">Observações sobre as provas</label>
+      </div>
+
+      <div class="action-buttons">
+        <div>
+          <button type="reset" class="btn btn-outline-danger me-2">
+            <i class="bi bi-eraser"></i> Limpar
+          </button>
+          <a href="#incapacity" class="btn btn-outline-secondary me-2">
+            <i class="bi bi-arrow-left"></i> Voltar
+          </a>
+        </div>
+        <div>
+          <a href="#defense" class="btn btn-primary px-4">
+            Continuar <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

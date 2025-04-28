@@ -1,0 +1,146 @@
+<div class="container page-fade">
+  <h2 class="mb-3">Dados de Incapacidade</h2>
+  <p class="text-muted mb-4">Informações médicas e periciais relevantes para a audiência.</p>
+
+  <div class="card shadow-sm mb-4">
+    <div class="card-body p-4">
+      <h5 class="border-bottom pb-2 mb-3">Doenças e CIDs</h5>
+      <ul class="list-group list-group-flush" id="doencasList">
+        <li class="list-group-item bg-transparent px-0">
+          <div class="d-flex align-items-center">
+            <div class="row g-2 flex-grow-1">
+              <div class="col-md-3">
+                <div class="form-floating">
+                  <input type="text" class="form-control cid-input" id="cid1" placeholder="CID" name="cids[]" data-index="1">
+                  <label for="cid1">CID</label>
+                </div>
+              </div>
+              <div class="col-md-9">
+                <div class="form-floating">
+                  <input type="text" class="form-control doenca-input" id="doenca1" placeholder="Doença" name="doencas[]" data-index="1">
+                  <label for="doenca1">Doença/Condição</label>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-sm btn-primary rounded-circle ms-2 add-btn" id="addDoenca" title="Adicionar CID/Doença">
+              <i class="bi bi-plus"></i>
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card shadow-sm mb-4">
+    <div class="card-body p-4">
+      <h5 class="border-bottom pb-2 mb-3">Datas Médicas</h5>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="form-floating">
+            <input type="date" class="form-control" id="dataPericia" placeholder="Data da Perícia" name="dataPericia">
+            <label for="dataPericia">Data da Perícia</label>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-floating">
+            <input type="date" class="form-control" id="dataAtestado" placeholder="Data do Atestado" name="dataAtestado">
+            <label for="dataAtestado">Data do Atestado</label>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-floating">
+            <input type="date" class="form-control" id="dataExame" placeholder="Data do Exame" name="dataExame">
+            <label for="dataExame">Data do Exame Complementar</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card shadow-sm mb-4">
+    <div class="card-body p-4">
+      <h5 class="border-bottom pb-2 mb-3">Informações da Perícia</h5>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <div class="form-floating">
+            <input type="text" class="form-control" id="nomePerito" placeholder="Nome do Perito" name="nomePerito">
+            <label for="nomePerito">Nome do Perito</label>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="form-floating">
+            <select class="form-select select-with-other" id="conclusaoPericia" name="conclusaoPericia" data-other-target="outraConclusao">
+              <option value="" selected disabled>Selecione...</option>
+              <option value="favoravel">Favorável à incapacidade</option>
+              <option value="desfavoravel">Desfavorável à incapacidade</option>
+              <option value="parcial">Incapacidade parcial</option>
+              <option value="temporaria">Incapacidade temporária</option>
+              <option value="definitiva">Incapacidade definitiva</option>
+              <option value="outro">Outro...</option>
+            </select>
+            <label for="conclusaoPericia">Conclusão da Perícia</label>
+          </div>
+          <div class="form-floating mt-2 d-none outro-field" id="outraConclusao">
+            <input type="text" class="form-control" id="outraConclusaoInput" placeholder="Especifique a conclusão" name="outraConclusao">
+            <label for="outraConclusaoInput">Especifique a conclusão</label>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="form-floating">
+            <select class="form-select select-with-other" id="tipoIncapacidade" name="tipoIncapacidade" data-other-target="outroTipoIncapacidade">
+              <option value="" selected disabled>Selecione...</option>
+              <option value="total-temporaria">Total e Temporária</option>
+              <option value="total-permanente">Total e Permanente</option>
+              <option value="parcial-temporaria">Parcial e Temporária</option>
+              <option value="parcial-permanente">Parcial e Permanente</option>
+              <option value="sem-incapacidade">Sem Incapacidade</option>
+              <option value="outro">Outro...</option>
+            </select>
+            <label for="tipoIncapacidade">Tipo de Incapacidade</label>
+          </div>
+          <div class="form-floating mt-2 d-none outro-field" id="outroTipoIncapacidade">
+            <input type="text" class="form-control" id="outroTipoIncapacidadeInput" placeholder="Especifique o tipo" name="outroTipoIncapacidade">
+            <label for="outroTipoIncapacidadeInput">Especifique o tipo</label>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="form-floating">
+            <textarea class="form-control" id="observacoesPericia" placeholder="Observações da Perícia" name="observacoesPericia" style="height: 100px"></textarea>
+            <label for="observacoesPericia">Observações da Perícia</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card shadow-sm">
+    <div class="card-body p-4">
+      <h5 class="border-bottom pb-2 mb-3">Observações</h5>
+      <div class="form-floating">
+        <textarea class="form-control" id="observacoesIncapacidade" placeholder="Observações" name="observacoesIncapacidade" style="height: 120px"></textarea>
+        <label for="observacoesIncapacidade">Observações sobre a incapacidade</label>
+      </div>
+
+      <div class="action-buttons">
+        <div>
+          <button type="reset" class="btn btn-outline-danger me-2">
+            <i class="bi bi-eraser"></i> Limpar
+          </button>
+          <a href="#process" class="btn btn-outline-secondary me-2">
+            <i class="bi bi-arrow-left"></i> Voltar
+          </a>
+        </div>
+        <div>
+          <a href="#evidence" class="btn btn-primary px-4">
+            Continuar <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

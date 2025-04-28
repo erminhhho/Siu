@@ -1,0 +1,150 @@
+<div class="container page-fade">
+  <h2 class="mb-3">Dados do Processo</h2>
+  <p class="text-muted mb-4">Informações estratégicas para utilizar durante a audiência previdenciária.</p>
+
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-body p-4">
+          <h5 class="border-bottom pb-2 mb-3">Benefícios Principais</h5>
+          <ul class="list-group list-group-flush" id="beneficiosList">
+            <li class="list-group-item bg-transparent px-0">
+              <div class="d-flex align-items-center">
+                <div class="form-floating flex-grow-1">
+                  <select class="form-select" id="beneficio1" name="beneficios[]">
+                    <option value="" selected disabled>Selecione um benefício...</option>
+                    <option value="auxilio-doenca">Auxílio-Doença (B31)</option>
+                    <option value="aposentadoria-invalidez">Aposentadoria por Invalidez (B32)</option>
+                    <option value="auxilio-acidente">Auxílio-Acidente (B94)</option>
+                    <option value="bpc-loas">BPC/LOAS (B87)</option>
+                    <option value="aposentadoria-tempo">Aposentadoria por Tempo de Contribuição (B42)</option>
+                    <option value="aposentadoria-idade">Aposentadoria por Idade (B41)</option>
+                    <option value="aposentadoria-especial">Aposentadoria Especial (B46)</option>
+                    <option value="pensao-morte">Pensão por Morte (B21)</option>
+                    <option value="salario-maternidade">Salário-Maternidade (B80)</option>
+                    <option value="auxilio-reclusao">Auxílio-Reclusão (B25)</option>
+                  </select>
+                  <label for="beneficio1">Benefício Pleiteado</label>
+                </div>
+                <button type="button" class="btn btn-sm btn-primary rounded-circle ms-2 add-btn" id="addBeneficio" title="Adicionar Benefício">
+                  <i class="bi bi-plus"></i>
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-body p-4">
+          <h5 class="border-bottom pb-2 mb-3">Motivos de Indeferimento</h5>
+          <ul class="list-group list-group-flush" id="motivosList">
+            <li class="list-group-item bg-transparent px-0">
+              <div class="d-flex align-items-center">
+                <div class="form-floating flex-grow-1">
+                  <select class="form-select" id="motivo1" name="motivos[]">
+                    <option value="" selected disabled>Selecione um motivo...</option>
+                    <option value="falta-qualidade-segurado">Falta de qualidade de segurado</option>
+                    <option value="falta-carencia">Não cumprimento de carência</option>
+                    <option value="falta-incapacidade">Não constatação de incapacidade</option>
+                    <option value="falta-deficiencia">Não constatação de deficiência</option>
+                    <option value="doenca-preexistente">Doença ou lesão preexistente</option>
+                    <option value="falta-tempo-contribuicao">Tempo de contribuição insuficiente</option>
+                    <option value="falta-idade-minima">Não atingiu idade mínima</option>
+                    <option value="falta-atividade-rural">Não comprovação de atividade rural</option>
+                    <option value="falta-dependencia-economica">Falta de comprovação de dependência econômica</option>
+                  </select>
+                  <label for="motivo1">Motivo de Indeferimento</label>
+                </div>
+                <button type="button" class="btn btn-sm btn-primary rounded-circle ms-2 add-btn" id="addMotivo" title="Adicionar Motivo">
+                  <i class="bi bi-plus"></i>
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card shadow-sm mb-4">
+    <div class="card-body p-4">
+      <div class="section-header">
+        <h5>Datas Importantes</h5>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="form-floating">
+            <input type="date" class="form-control" id="dataDER" placeholder="DER" name="dataDER">
+            <label for="dataDER">DER - Data Entrada Requerimento</label>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-floating">
+            <input type="date" class="form-control" id="dataDAA" placeholder="DAA" name="dataDAA">
+            <label for="dataDAA">DAA - Data Ajuizamento Ação</label>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-floating">
+            <input type="date" class="form-control" id="dataDII" placeholder="DII" name="dataDII">
+            <label for="dataDII">DII - Data Início Incapacidade</label>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-floating">
+            <input type="date" class="form-control" id="dataDIB" placeholder="DIB" name="dataDIB">
+            <label for="dataDIB">DIB - Data Início Benefício</label>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-floating">
+            <input type="date" class="form-control" id="dataDCB" placeholder="DCB" name="dataDCB">
+            <label for="dataDCB">DCB - Data Cessação Benefício</label>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-floating">
+            <input type="date" class="form-control" id="dataAudiencia" placeholder="Data da Audiência" name="dataAudiencia">
+            <label for="dataAudiencia">Data da Audiência</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card shadow-sm">
+    <div class="card-body p-4">
+      <div class="section-header">
+        <h5>Observações</h5>
+      </div>
+      <div class="form-floating">
+        <textarea class="form-control" id="observacoesProcesso" placeholder="Observações" name="observacoesProcesso" style="height: 120px"></textarea>
+        <label for="observacoesProcesso">Observações adicionais para utilizar na audiência</label>
+      </div>
+
+      <div class="action-buttons">
+        <div>
+          <button type="reset" class="btn btn-outline-danger me-2">
+            <i class="bi bi-eraser"></i> Limpar
+          </button>
+          <a href="#author" class="btn btn-outline-secondary me-2">
+            <i class="bi bi-arrow-left"></i> Voltar
+          </a>
+        </div>
+        <div>
+          <a href="#incapacity" class="btn btn-primary px-4">
+            Continuar <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

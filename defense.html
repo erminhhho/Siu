@@ -1,0 +1,91 @@
+<div class="container page-fade">
+  <h2 class="mb-3">Contestação INSS</h2>
+  <p class="text-muted mb-4">Registre os pontos principais da contestação do INSS.</p>
+
+  <div class="card shadow-sm mb-4">
+    <div class="card-body p-4">
+      <h5 class="border-bottom pb-2 mb-3">Argumentos da Contestação</h5>
+
+      <div class="mb-3">
+        <div class="d-flex align-items-center">
+          <div class="form-floating flex-grow-1">
+            <input type="text" class="form-control" id="searchArgumento" placeholder="Pesquisar ou adicionar novo argumento" name="searchArgumento">
+            <label for="searchArgumento">Pesquisar ou adicionar novo argumento</label>
+          </div>
+          <button type="button" class="btn btn-sm btn-primary rounded-circle ms-2 add-btn" id="btnAddNovoArgumento" title="Adicionar Argumento">
+            <i class="bi bi-plus"></i>
+          </button>
+        </div>
+        <div id="searchArgumentos" class="list-group mt-2 search-results">
+          <!-- Resultados da pesquisa aparecerão aqui -->
+        </div>
+      </div>
+
+      <ul class="list-group list-group-flush" id="argumentosContestacao">
+        <!-- Os argumentos adicionados aparecerão aqui -->
+      </ul>
+    </div>
+  </div>
+
+  <div class="card shadow-sm mb-4">
+    <div class="card-body p-4">
+      <h5 class="border-bottom pb-2 mb-3">Teses Defensivas</h5>
+
+      <div class="mb-3">
+        <div class="d-flex align-items-center">
+          <div class="form-floating flex-grow-1">
+            <input type="text" class="form-control" id="searchTese" placeholder="Pesquisar ou adicionar nova tese" name="searchTese">
+            <label for="searchTese">Pesquisar ou adicionar nova tese</label>
+          </div>
+          <button type="button" class="btn btn-sm btn-primary rounded-circle ms-2 add-btn" id="btnAddNovaTese" title="Adicionar Tese">
+            <i class="bi bi-plus"></i>
+          </button>
+        </div>
+        <div id="searchTeses" class="list-group mt-2 search-results">
+          <!-- Resultados da pesquisa aparecerão aqui -->
+        </div>
+      </div>
+
+      <div class="form-floating mt-3">
+        <textarea class="form-control" id="tesesDefensivas" placeholder="Teses Defensivas" name="tesesDefensivas" style="height: 150px"></textarea>
+        <label for="tesesDefensivas">Teses Defensivas do INSS</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="card shadow-sm mb-4">
+    <div class="card-body p-4">
+      <h5 class="border-bottom pb-2 mb-3">Contra-Argumentação</h5>
+      <div class="form-floating">
+        <textarea class="form-control" id="contraArgumentacao" placeholder="Contra-Argumentação" name="contraArgumentacao" style="height: 120px"></textarea>
+        <label for="contraArgumentacao">Suas contra-argumentações para a defesa</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="card shadow-sm">
+    <div class="card-body p-4">
+      <h5 class="border-bottom pb-2 mb-3">Observações</h5>
+      <div class="form-floating">
+        <textarea class="form-control" id="observacoesContestacao" placeholder="Observações adicionais sobre a contestação" name="observacoesContestacao" style="height: 120px"></textarea>
+        <label for="observacoesContestacao">Observações adicionais sobre a contestação</label>
+      </div>
+
+      <div class="action-buttons">
+        <div>
+          <button type="reset" class="btn btn-outline-danger me-2">
+            <i class="bi bi-eraser"></i> Limpar
+          </button>
+          <a href="#evidence" class="btn btn-outline-secondary me-2">
+            <i class="bi bi-arrow-left"></i> Voltar
+          </a>
+        </div>
+        <div>
+          <a href="#interviews" class="btn btn-primary px-4">
+            Continuar <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

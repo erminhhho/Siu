@@ -1,0 +1,128 @@
+<div class="container">
+  <h2 class="mb-4">Entrevistas</h2>
+  <p class="text-muted mb-4">Registre informações das entrevistas com autor e testemunhas.</p>
+
+  <div class="card shadow-sm mb-4">
+    <div class="card-header bg-light">
+      <h5 class="mb-0">Entrevista com o Autor</h5>
+    </div>
+    <div class="card-body p-4">
+      <form id="entrevistaAutorForm" class="row g-3">
+        <div class="col-12">
+          <div class="form-floating">
+            <textarea class="form-control" id="historicoProfissional" placeholder="Histórico Profissional" name="historicoProfissional" style="height: 100px"></textarea>
+            <label for="historicoProfissional">Histórico Profissional</label>
+          </div>
+        </div>
+
+        <div class="col-12 mt-3">
+          <div class="form-floating">
+            <textarea class="form-control" id="questoesRelevantes" placeholder="Questões Relevantes" name="questoesRelevantes" style="height: 100px"></textarea>
+            <label for="questoesRelevantes">Questões Relevantes para o Caso</label>
+          </div>
+        </div>
+
+        <div class="col-12 mt-3">
+          <h5>Perguntas e Respostas</h5>
+          <div id="perguntasRespostasAutor">
+            <div class="row mb-3 pergunta-resposta-item">
+              <div class="col-md-5">
+                <div class="form-floating">
+                  <input type="text" class="form-control" placeholder="Pergunta" name="perguntaAutor[]">
+                  <label>Pergunta</label>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="form-floating">
+                  <input type="text" class="form-control" placeholder="Resposta" name="respostaAutor[]">
+                  <label>Resposta</label>
+                </div>
+              </div>
+              <div class="col-md-2 d-flex align-items-center">
+                <button type="button" class="btn btn-outline-danger btn-sm remover-pergunta">
+                  <i class="bi bi-trash"></i> Remover
+                </button>
+              </div>
+            </div>
+          </div>
+          <button type="button" class="btn btn-outline-primary btn-sm" id="addPerguntaAutor">
+            <i class="bi bi-plus-circle"></i> Adicionar Pergunta/Resposta
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="card shadow-sm">
+    <div class="card-header bg-light">
+      <h5 class="mb-0">Entrevista com Testemunhas</h5>
+    </div>
+    <div class="card-body p-4">
+      <form id="entrevistaTestemunhasForm" class="row g-3">
+        <div class="col-12">
+          <div id="testemunhasEntrevista">
+            <div class="testemunha-bloco mb-4 pb-3 border-bottom">
+              <h5 class="mb-3">Testemunha 1</h5>
+
+              <div class="row mb-3">
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" placeholder="Nome da Testemunha" name="nomeTestemunha[]">
+                    <label>Nome da Testemunha</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-floating">
+                    <input type="text" class="form-control" placeholder="Relação com o Autor" name="relacaoTestemunha[]">
+                    <label>Relação com o Autor</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="perguntas-testemunha">
+                <div class="row mb-3 pergunta-resposta-testemunha">
+                  <div class="col-md-5">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" placeholder="Pergunta" name="perguntaTestemunha1[]">
+                      <label>Pergunta</label>
+                    </div>
+                  </div>
+                  <div class="col-md-5">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" placeholder="Resposta" name="respostaTestemunha1[]">
+                      <label>Resposta</label>
+                    </div>
+                  </div>
+                  <div class="col-md-2 d-flex align-items-center">
+                    <button type="button" class="btn btn-outline-danger btn-sm remover-pergunta-testemunha">
+                      <i class="bi bi-trash"></i> Remover
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn-outline-primary btn-sm mt-2 add-pergunta-testemunha" data-testemunha="1">
+                <i class="bi bi-plus-circle"></i> Adicionar Pergunta/Resposta
+              </button>
+            </div>
+          </div>
+          <button type="button" class="btn btn-outline-primary btn-sm" id="addTestemunha">
+            <i class="bi bi-plus-circle"></i> Adicionar Testemunha
+          </button>
+        </div>
+
+        <!-- Campo de observações adicionado -->
+        <div class="col-12 mt-4">
+          <div class="form-floating">
+            <textarea class="form-control" id="observacoesEntrevistas" placeholder="Observações" name="observacoesEntrevistas" style="height: 120px"></textarea>
+            <label for="observacoesEntrevistas">Observações</label>
+          </div>
+        </div>
+
+        <div class="col-12 mt-3">
+          <p class="text-muted"><i class="bi bi-info-circle"></i> Os dados são salvos automaticamente ao navegar.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
