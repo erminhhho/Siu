@@ -1,54 +1,57 @@
 <div class="container page-fade">
-  <h2 class="mb-3">Contestação INSS</h2>
-  <p class="text-muted mb-4">Registre os pontos principais da contestação do INSS.</p>
+  <h2 class="mb-3">Contestação do INSS</h2>
+  <p class="text-muted mb-4">Registre os argumentos utilizados pelo INSS na contestação.</p>
 
   <div class="card shadow-sm mb-4">
     <div class="card-body p-4">
       <h5 class="border-bottom pb-2 mb-3">Argumentos da Contestação</h5>
 
-      <div class="mb-3">
-        <div class="d-flex align-items-center">
-          <div class="form-floating flex-grow-1">
-            <input type="text" class="form-control" id="searchArgumento" placeholder="Pesquisar ou adicionar novo argumento" name="searchArgumento">
-            <label for="searchArgumento">Pesquisar ou adicionar novo argumento</label>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <div class="form-floating">
+            <select class="form-select" id="categoriaTese">
+              <option value="" selected disabled>Selecione uma categoria...</option>
+              <option value="qualidade">Qualidade de Segurado</option>
+              <option value="carencia">Carência</option>
+              <option value="incapacidade">Incapacidade</option>
+              <option value="rural">Atividade Rural</option>
+              <option value="bpc">BPC/LOAS</option>
+              <option value="aposentadoria">Aposentadoria</option>
+              <option value="pensao">Pensão por Morte</option>
+              <option value="processual">Questões Processuais</option>
+              <option value="outro">Outro Argumento</option>
+            </select>
+            <label for="categoriaTese">Categoria</label>
           </div>
-          <button type="button" class="btn btn-sm btn-primary rounded-circle ms-2 add-btn" id="btnAddNovoArgumento" title="Adicionar Argumento">
-            <i class="bi bi-plus"></i>
-          </button>
         </div>
-        <div id="searchArgumentos" class="list-group mt-2 search-results">
-          <!-- Resultados da pesquisa aparecerão aqui -->
+        <div class="col-md-6">
+          <div class="form-floating">
+            <select class="form-select" id="argumentoInss" disabled>
+              <option value="" selected disabled>Primeiro selecione uma categoria...</option>
+            </select>
+            <label for="argumentoInss">Argumento do INSS</label>
+          </div>
         </div>
       </div>
 
+      <div class="text-end mb-4">
+        <button type="button" class="btn btn-primary" id="btnAddArgumento">
+          <i class="bi bi-plus-circle me-1"></i> Adicionar Argumento
+        </button>
+      </div>
+
       <ul class="list-group list-group-flush" id="argumentosContestacao">
-        <!-- Os argumentos adicionados aparecerão aqui -->
+        <!-- Os argumentos serão adicionados aqui -->
       </ul>
     </div>
   </div>
 
   <div class="card shadow-sm mb-4">
     <div class="card-body p-4">
-      <h5 class="border-bottom pb-2 mb-3">Teses Defensivas</h5>
-
-      <div class="mb-3">
-        <div class="d-flex align-items-center">
-          <div class="form-floating flex-grow-1">
-            <input type="text" class="form-control" id="searchTese" placeholder="Pesquisar ou adicionar nova tese" name="searchTese">
-            <label for="searchTese">Pesquisar ou adicionar nova tese</label>
-          </div>
-          <button type="button" class="btn btn-sm btn-primary rounded-circle ms-2 add-btn" id="btnAddNovaTese" title="Adicionar Tese">
-            <i class="bi bi-plus"></i>
-          </button>
-        </div>
-        <div id="searchTeses" class="list-group mt-2 search-results">
-          <!-- Resultados da pesquisa aparecerão aqui -->
-        </div>
-      </div>
-
-      <div class="form-floating mt-3">
-        <textarea class="form-control" id="tesesDefensivas" placeholder="Teses Defensivas" name="tesesDefensivas" style="height: 150px"></textarea>
-        <label for="tesesDefensivas">Teses Defensivas do INSS</label>
+      <h5 class="border-bottom pb-2 mb-3">Teses Defensivas do INSS</h5>
+      <div class="form-floating mb-3">
+        <textarea class="form-control" id="tesesDefensivas" placeholder="Teses defensivas" style="height: 150px"></textarea>
+        <label for="tesesDefensivas">Teses defendidas pelo INSS</label>
       </div>
     </div>
   </div>
@@ -56,9 +59,9 @@
   <div class="card shadow-sm mb-4">
     <div class="card-body p-4">
       <h5 class="border-bottom pb-2 mb-3">Contra-Argumentação</h5>
-      <div class="form-floating">
-        <textarea class="form-control" id="contraArgumentacao" placeholder="Contra-Argumentação" name="contraArgumentacao" style="height: 120px"></textarea>
-        <label for="contraArgumentacao">Suas contra-argumentações para a defesa</label>
+      <div class="form-floating mb-3">
+        <textarea class="form-control" id="contraArgumentacao" placeholder="Contra-argumentação" style="height: 150px"></textarea>
+        <label for="contraArgumentacao">Pontos favoráveis para contra-argumentar</label>
       </div>
     </div>
   </div>
@@ -67,7 +70,7 @@
     <div class="card-body p-4">
       <h5 class="border-bottom pb-2 mb-3">Observações</h5>
       <div class="form-floating">
-        <textarea class="form-control" id="observacoesContestacao" placeholder="Observações adicionais sobre a contestação" name="observacoesContestacao" style="height: 120px"></textarea>
+        <textarea class="form-control" id="observacoesContestacao" placeholder="Observações" style="height: 120px"></textarea>
         <label for="observacoesContestacao">Observações adicionais sobre a contestação</label>
       </div>
 

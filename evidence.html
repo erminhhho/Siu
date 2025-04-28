@@ -7,13 +7,10 @@
       <h5 class="border-bottom pb-2 mb-3">Provas Documentais</h5>
 
       <div class="mb-3">
-        <div class="d-flex align-items-center">
-          <div class="form-floating flex-grow-1">
-            <input type="text" class="form-control" id="searchProva" placeholder="Pesquisar ou adicionar nova prova" name="searchProva">
-            <label for="searchProva">Pesquisar ou adicionar nova prova</label>
-          </div>
-          <button type="button" class="btn btn-sm btn-primary rounded-circle ms-2 add-btn" id="btnAddNovaProva" title="Adicionar Prova">
-            <i class="bi bi-plus"></i>
+        <div class="input-group">
+          <input type="text" class="form-control" id="searchProva" placeholder="Pesquisar ou adicionar nova prova..." aria-label="Pesquisar provas">
+          <button class="btn btn-outline-primary" type="button" id="btnAddNovaProva">
+            <i class="bi bi-plus-lg"></i> Adicionar
           </button>
         </div>
         <div id="searchResults" class="list-group mt-2 search-results">

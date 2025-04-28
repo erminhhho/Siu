@@ -1,128 +1,423 @@
-<div class="container">
-  <h2 class="mb-4">Entrevistas</h2>
-  <p class="text-muted mb-4">Registre informações das entrevistas com autor e testemunhas.</p>
+<div class="container page-fade">
+  <h2 class="mb-3">Entrevistas</h2>
+  <p class="text-muted mb-4">Registre as perguntas e respostas das entrevistas com autor e testemunhas.</p>
 
-  <div class="card shadow-sm mb-4">
-    <div class="card-header bg-light">
-      <h5 class="mb-0">Entrevista com o Autor</h5>
-    </div>
-    <div class="card-body p-4">
-      <form id="entrevistaAutorForm" class="row g-3">
-        <div class="col-12">
-          <div class="form-floating">
-            <textarea class="form-control" id="historicoProfissional" placeholder="Histórico Profissional" name="historicoProfissional" style="height: 100px"></textarea>
-            <label for="historicoProfissional">Histórico Profissional</label>
+  <ul class="nav nav-tabs mb-4" id="entrevistasTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="autor-tab" data-bs-toggle="tab" data-bs-target="#autor-content" type="button" role="tab" aria-controls="autor-content" aria-selected="true">
+        <i class="bi bi-person-fill me-2"></i>Autor
+      </button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="testemunhas-tab" data-bs-toggle="tab" data-bs-target="#testemunhas-content" type="button" role="tab" aria-controls="testemunhas-content" aria-selected="false">
+        <i class="bi bi-people-fill me-2"></i>Testemunhas
+      </button>
+    </li>
+  </ul>
+
+  <div class="tab-content" id="entrevistasTabContent">
+    <!-- Aba do Autor -->
+    <div class="tab-pane fade show active" id="autor-content" role="tabpanel" aria-labelledby="autor-tab">
+      <div class="card shadow-sm mb-4">
+        <div class="card-body p-4">
+          <h5 class="border-bottom pb-2 mb-3">Histórico do Autor</h5>
+          <div class="form-floating mb-3">
+            <textarea class="form-control" id="historiaAutor" placeholder="História do autor" style="height: 100px"></textarea>
+            <label for="historiaAutor">Resumo da história de vida</label>
           </div>
         </div>
+      </div>
 
-        <div class="col-12 mt-3">
-          <div class="form-floating">
-            <textarea class="form-control" id="questoesRelevantes" placeholder="Questões Relevantes" name="questoesRelevantes" style="height: 100px"></textarea>
-            <label for="questoesRelevantes">Questões Relevantes para o Caso</label>
+      <!-- Perguntas para o Autor -->
+      <div class="card shadow-sm mb-4">
+        <div class="card-body p-4">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="mb-0">Perguntas para o Autor</h5>
+            <div>
+              <button class="btn btn-sm btn-outline-primary" id="btnMostrarTodasPerguntas">
+                <i class="bi bi-eye me-1"></i>Mostrar Todas
+              </button>
+              <button class="btn btn-sm btn-outline-secondary ms-2" id="btnOcultarTodasPerguntas">
+                <i class="bi bi-eye-slash me-1"></i>Ocultar Todas
+              </button>
+              <button class="btn btn-sm btn-outline-secondary ms-2" id="btnLimparRespostas">
+                <i class="bi bi-eraser me-1"></i>Limpar Respostas
+              </button>
+            </div>
           </div>
-        </div>
 
-        <div class="col-12 mt-3">
-          <h5>Perguntas e Respostas</h5>
-          <div id="perguntasRespostasAutor">
-            <div class="row mb-3 pergunta-resposta-item">
-              <div class="col-md-5">
-                <div class="form-floating">
-                  <input type="text" class="form-control" placeholder="Pergunta" name="perguntaAutor[]">
-                  <label>Pergunta</label>
-                </div>
-              </div>
-              <div class="col-md-5">
-                <div class="form-floating">
-                  <input type="text" class="form-control" placeholder="Resposta" name="respostaAutor[]">
-                  <label>Resposta</label>
-                </div>
-              </div>
-              <div class="col-md-2 d-flex align-items-center">
-                <button type="button" class="btn btn-outline-danger btn-sm remover-pergunta">
-                  <i class="bi bi-trash"></i> Remover
+          <div class="accordion" id="perguntasAutor">
+            <!-- Grupo 1: Histórico de Vida Rural -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                  1. Histórico de Vida Rural
                 </button>
+              </h2>
+              <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-bs-parent="#perguntasAutor">
+                <div class="accordion-body">
+                  <div class="mb-3">
+                    <label class="form-label">Desde que idade trabalha na roça?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-1-1" name="pergunta-1-1">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Sempre trabalhou na agricultura? Já trabalhou de alugado?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-1-2" name="pergunta-1-2">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Sempre morou na zona rural? Em quais locais?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-1-3" name="pergunta-1-3">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Grupo 2: Sobre a Terra -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                  2. Sobre a Terra
+                </button>
+              </h2>
+              <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#perguntasAutor">
+                <div class="accordion-body">
+                  <div class="mb-3">
+                    <label class="form-label">A terra é própria, arrendada, cedida ou de parente?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-2-1" name="pergunta-2-1">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Quem cedeu a terra para você? Por quê?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-2-2" name="pergunta-2-2">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Quantas tarefas ou hectares cultiva?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-2-3" name="pergunta-2-3">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Quem são seus vizinhos de roça?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-2-4" name="pergunta-2-4">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Como vai para a roça? A pé, bicicleta, moto?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-2-5" name="pergunta-2-5">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Qual a distância da sua casa até a roça? Quanto tempo gasta?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-2-6" name="pergunta-2-6">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Grupo 3: Cultivo e Produção -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                  3. Cultivo e Produção
+                </button>
+              </h2>
+              <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#perguntasAutor">
+                <div class="accordion-body">
+                  <div class="mb-3">
+                    <label class="form-label">O que você planta? (feijão, milho, macaxeira, batata, etc.)</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-3-1" name="pergunta-3-1">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Como planta o milho?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-3-2" name="pergunta-3-2">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Como planta o feijão?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-3-3" name="pergunta-3-3">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Como planta a macaxeira?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-3-4" name="pergunta-3-4">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Como planta a batata?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-3-5" name="pergunta-3-5">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Quanto tempo demora para colher o milho, o feijão, a macaxeira e a batata?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-3-6" name="pergunta-3-6">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Qual o melhor mês para plantar milho, feijão e batata?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-3-7" name="pergunta-3-7">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">O que coloca na cova para plantar a batata?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-3-8" name="pergunta-3-8">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">O que planta na cabeça do canteiro?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-3-9" name="pergunta-3-9">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Grupo 4: Manejo e Conhecimentos Técnicos -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading4">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                  4. Manejo e Conhecimentos Técnicos
+                </button>
+              </h2>
+              <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#perguntasAutor">
+                <div class="accordion-body">
+                  <div class="mb-3">
+                    <label class="form-label">Como cura o feijão colhido? Usa veneno ou gás?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-4-1" name="pergunta-4-1">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Qual veneno usa? É pó ou líquido?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-4-2" name="pergunta-4-2">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Conhece a lagarta compasso?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-4-3" name="pergunta-4-3">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Conhece o que é a "mela" no feijão?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-4-4" name="pergunta-4-4">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Qual a cor da flor do feijão de corda?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-4-5" name="pergunta-4-5">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Qual a cor da flor do feijão carioca?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-4-6" name="pergunta-4-6">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Como guarda a semente de um ano para o outro?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-4-7" name="pergunta-4-7">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Sabe o que é coivara? Como faz?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-4-8" name="pergunta-4-8">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Para que serve a foice, rastelo e estrovenga?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-4-9" name="pergunta-4-9">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Grupo 5: Família e Estrutura -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading5">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                  5. Família e Estrutura
+                </button>
+              </h2>
+              <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#perguntasAutor">
+                <div class="accordion-body">
+                  <div class="mb-3">
+                    <label class="form-label">Quem da sua família trabalha com você na roça?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-5-1" name="pergunta-5-1">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Mora com quem?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-5-2" name="pergunta-5-2">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Alguém da família tem aposentadoria ou benefício rural?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-5-3" name="pergunta-5-3">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Grupo 6: Transporte e Renda -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading6">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                  6. Transporte e Renda
+                </button>
+              </h2>
+              <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#perguntasAutor">
+                <div class="accordion-body">
+                  <div class="mb-3">
+                    <label class="form-label">Produz para consumo próprio ou para vender?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-6-1" name="pergunta-6-1">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Como transporta a produção?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-6-2" name="pergunta-6-2">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Grupo 7: Programas Rurais -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading7">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                  7. Programas Rurais
+                </button>
+              </h2>
+              <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="heading7" data-bs-parent="#perguntasAutor">
+                <div class="accordion-body">
+                  <div class="mb-3">
+                    <label class="form-label">Já recebeu sementes de programa do governo? Quando?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-7-1" name="pergunta-7-1">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Tem DAP? Já pegou crédito rural?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-7-2" name="pergunta-7-2">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Grupo 8: Histórico de Trabalho -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="heading8">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                  8. Histórico de Trabalho
+                </button>
+              </h2>
+              <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8" data-bs-parent="#perguntasAutor">
+                <div class="accordion-body">
+                  <div class="mb-3">
+                    <label class="form-label">Já trabalhou em usina ou fazenda?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-8-1" name="pergunta-8-1">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Qual o nome do gerente ou do dono da fazenda?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-8-2" name="pergunta-8-2">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">O dono da fazenda cria gado?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-8-3" name="pergunta-8-3">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Qual a cor da casa do proprietário? Ele mora lá?</label>
+                    <input type="text" class="form-control pergunta-autor" id="pergunta-8-4" name="pergunta-8-4">
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <button type="button" class="btn btn-outline-primary btn-sm" id="addPerguntaAutor">
-            <i class="bi bi-plus-circle"></i> Adicionar Pergunta/Resposta
-          </button>
         </div>
-      </form>
+      </div>
+
+      <!-- Botão para adicionar pergunta personalizada -->
+      <div class="mb-4">
+        <button class="btn btn-outline-primary" id="btnAddPerguntaPersonalizada">
+          <i class="bi bi-plus-circle me-2"></i>Adicionar Pergunta Personalizada
+        </button>
+      </div>
+    </div>
+
+    <!-- Aba das Testemunhas -->
+    <div class="tab-pane fade" id="testemunhas-content" role="tabpanel" aria-labelledby="testemunhas-tab">
+      <div class="card shadow-sm mb-4">
+        <div class="card-body p-4">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h5 class="mb-0">Testemunhas</h5>
+            <button class="btn btn-primary btn-sm" id="btnAddTestemunha">
+              <i class="bi bi-person-plus me-2"></i>Adicionar Testemunha
+            </button>
+          </div>
+
+          <!-- Lista de testemunhas vazia inicialmente -->
+          <div id="testemunhasContainer">
+            <div class="alert alert-info" id="semTestemunhasAlert">
+              <i class="bi bi-info-circle me-2"></i>Nenhuma testemunha foi adicionada.
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <div class="card shadow-sm">
-    <div class="card-header bg-light">
-      <h5 class="mb-0">Entrevista com Testemunhas</h5>
-    </div>
     <div class="card-body p-4">
-      <form id="entrevistaTestemunhasForm" class="row g-3">
-        <div class="col-12">
-          <div id="testemunhasEntrevista">
-            <div class="testemunha-bloco mb-4 pb-3 border-bottom">
-              <h5 class="mb-3">Testemunha 1</h5>
+      <h5 class="border-bottom pb-2 mb-3">Observações</h5>
+      <div class="form-floating mb-3">
+        <textarea class="form-control" id="observacoesEntrevistas" placeholder="Observações" style="height: 100px"></textarea>
+        <label for="observacoesEntrevistas">Observações adicionais sobre as entrevistas</label>
+      </div>
 
-              <div class="row mb-3">
-                <div class="col-md-6">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" placeholder="Nome da Testemunha" name="nomeTestemunha[]">
-                    <label>Nome da Testemunha</label>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-floating">
-                    <input type="text" class="form-control" placeholder="Relação com o Autor" name="relacaoTestemunha[]">
-                    <label>Relação com o Autor</label>
-                  </div>
-                </div>
-              </div>
-
-              <div class="perguntas-testemunha">
-                <div class="row mb-3 pergunta-resposta-testemunha">
-                  <div class="col-md-5">
-                    <div class="form-floating">
-                      <input type="text" class="form-control" placeholder="Pergunta" name="perguntaTestemunha1[]">
-                      <label>Pergunta</label>
-                    </div>
-                  </div>
-                  <div class="col-md-5">
-                    <div class="form-floating">
-                      <input type="text" class="form-control" placeholder="Resposta" name="respostaTestemunha1[]">
-                      <label>Resposta</label>
-                    </div>
-                  </div>
-                  <div class="col-md-2 d-flex align-items-center">
-                    <button type="button" class="btn btn-outline-danger btn-sm remover-pergunta-testemunha">
-                      <i class="bi bi-trash"></i> Remover
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <button type="button" class="btn btn-outline-primary btn-sm mt-2 add-pergunta-testemunha" data-testemunha="1">
-                <i class="bi bi-plus-circle"></i> Adicionar Pergunta/Resposta
-              </button>
-            </div>
-          </div>
-          <button type="button" class="btn btn-outline-primary btn-sm" id="addTestemunha">
-            <i class="bi bi-plus-circle"></i> Adicionar Testemunha
+      <div class="action-buttons">
+        <div>
+          <button type="reset" class="btn btn-outline-danger me-2">
+            <i class="bi bi-eraser"></i> Limpar
           </button>
+          <a href="#defense" class="btn btn-outline-secondary me-2">
+            <i class="bi bi-arrow-left"></i> Voltar
+          </a>
         </div>
-
-        <!-- Campo de observações adicionado -->
-        <div class="col-12 mt-4">
-          <div class="form-floating">
-            <textarea class="form-control" id="observacoesEntrevistas" placeholder="Observações" name="observacoesEntrevistas" style="height: 120px"></textarea>
-            <label for="observacoesEntrevistas">Observações</label>
-          </div>
+        <div>
+          <a href="#report" class="btn btn-primary px-4">
+            Continuar <i class="bi bi-arrow-right"></i>
+          </a>
         </div>
-
-        <div class="col-12 mt-3">
-          <p class="text-muted"><i class="bi bi-info-circle"></i> Os dados são salvos automaticamente ao navegar.</p>
-        </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
+
+<!-- Template para nova testemunha (oculto) -->
+<template id="testemunhaTemplate">
+  <div class="testemunha-item card mb-4" data-testemunha-id="{ID}">
+    <div class="card-header bg-light d-flex justify-content-between align-items-center">
+      <h6 class="mb-0">
+        <i class="bi bi-person me-2"></i>
+        <span class="testemunha-nome">Nome da Testemunha</span>
+      </h6>
+      <div class="btn-group">
+        <button class="btn btn-sm btn-outline-secondary btn-editar-testemunha">
+          <i class="bi bi-pencil"></i>
+        </button>
+        <button class="btn btn-sm btn-outline-danger btn-remover-testemunha">
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+    </div>
+    <div class="card-body testemunha-detalhes">
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <div class="form-floating">
+            <input type="text" class="form-control testemunha-nome-input" placeholder="Nome da Testemunha">
+            <label>Nome da Testemunha</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-floating">
+            <input type="text" class="form-control testemunha-relacao" placeholder="Relação com o Autor">
+            <label>Relação com o Autor</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-floating mb-3">
+        <textarea class="form-control testemunha-depoimento" placeholder="Depoimento" style="height: 100px"></textarea>
+        <label>Depoimento</label>
+      </div>
+      <div class="accordion testemunha-perguntas-accordion" id="testemunhaPerguntas{ID}">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#testemunhaCollapse{ID}" aria-expanded="true">
+              Perguntas e Respostas
+            </button>
+          </h2>
+          <div id="testemunhaCollapse{ID}" class="accordion-collapse collapse show" data-bs-parent="#testemunhaPerguntas{ID}">
+            <div class="accordion-body">
+              <div class="testemunha-perguntas-container">
+                <!-- As perguntas serão adicionadas aqui pelo JavaScript -->
+                <div class="alert alert-info">
+                  <i class="bi bi-info-circle me-2"></i>Carregando perguntas para a testemunha...
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

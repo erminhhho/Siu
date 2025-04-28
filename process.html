@@ -11,7 +11,7 @@
             <li class="list-group-item bg-transparent px-0">
               <div class="d-flex align-items-center">
                 <div class="form-floating flex-grow-1">
-                  <select class="form-select" id="beneficio1" name="beneficios[]">
+                  <select class="form-select select-with-other" id="beneficio1" name="beneficios[]" data-other-target="outroBeneficio1">
                     <option value="" selected disabled>Selecione um benefício...</option>
                     <option value="auxilio-doenca">Auxílio-Doença (B31)</option>
                     <option value="aposentadoria-invalidez">Aposentadoria por Invalidez (B32)</option>
@@ -23,12 +23,17 @@
                     <option value="pensao-morte">Pensão por Morte (B21)</option>
                     <option value="salario-maternidade">Salário-Maternidade (B80)</option>
                     <option value="auxilio-reclusao">Auxílio-Reclusão (B25)</option>
+                    <option value="outro">Outro...</option>
                   </select>
                   <label for="beneficio1">Benefício Pleiteado</label>
                 </div>
                 <button type="button" class="btn btn-sm btn-primary rounded-circle ms-2 add-btn" id="addBeneficio" title="Adicionar Benefício">
                   <i class="bi bi-plus"></i>
                 </button>
+              </div>
+              <div class="form-floating mt-2 d-none outro-field" id="outroBeneficio1">
+                <input type="text" class="form-control" id="outroBeneficioInput1" placeholder="Especifique o benefício" name="outroBeneficios[]">
+                <label for="outroBeneficioInput1">Especifique o benefício</label>
               </div>
             </li>
           </ul>
@@ -44,7 +49,7 @@
             <li class="list-group-item bg-transparent px-0">
               <div class="d-flex align-items-center">
                 <div class="form-floating flex-grow-1">
-                  <select class="form-select" id="motivo1" name="motivos[]">
+                  <select class="form-select select-with-other" id="motivo1" name="motivos[]" data-other-target="outroMotivo1">
                     <option value="" selected disabled>Selecione um motivo...</option>
                     <option value="falta-qualidade-segurado">Falta de qualidade de segurado</option>
                     <option value="falta-carencia">Não cumprimento de carência</option>
@@ -55,12 +60,17 @@
                     <option value="falta-idade-minima">Não atingiu idade mínima</option>
                     <option value="falta-atividade-rural">Não comprovação de atividade rural</option>
                     <option value="falta-dependencia-economica">Falta de comprovação de dependência econômica</option>
+                    <option value="outro">Outro...</option>
                   </select>
                   <label for="motivo1">Motivo de Indeferimento</label>
                 </div>
                 <button type="button" class="btn btn-sm btn-primary rounded-circle ms-2 add-btn" id="addMotivo" title="Adicionar Motivo">
                   <i class="bi bi-plus"></i>
                 </button>
+              </div>
+              <div class="form-floating mt-2 d-none outro-field" id="outroMotivo1">
+                <input type="text" class="form-control" id="outroMotivoInput1" placeholder="Especifique o motivo" name="outroMotivos[]">
+                <label for="outroMotivoInput1">Especifique o motivo</label>
               </div>
             </li>
           </ul>
