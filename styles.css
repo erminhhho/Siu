@@ -220,3 +220,36 @@ h5 {
     border: none !important;
   }
 }
+
+/* Remover borda azul grossa ao clicar nos campos */
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus,
+.btn:focus,
+.btn-check:focus + .btn,
+.accordion-button:focus,
+.nav-link:focus,
+.navbar-toggler:focus,
+.form-floating > .form-control:focus,
+.form-floating > .form-select:focus {
+  box-shadow: none !important;
+  border-color: var(--siu-primary) !important;
+  outline: none !important;
+}
+
+/* Estilo mais sutil para os campos focados */
+.form-control:focus,
+.form-select:focus,
+.form-floating > .form-control:focus,
+.form-floating > .form-select:focus {
+  border-width: 1px;
+  border-color: rgba(13, 110, 253, 0.5) !important;
+}
+
+/* Efeito mais sutil para outros elementos */
+.btn:focus,
+.btn-check:focus + .btn,
+.accordion-button:focus,
+.nav-link:focus {
+  border-color: transparent !important;
+}
