@@ -253,3 +253,54 @@ h5 {
 .nav-link:focus {
   border-color: transparent !important;
 }
+
+/* Ajustes para os dropdowns de CID */
+.cid-dropdown,
+.doenca-dropdown {
+  display: none;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 9999 !important; /* Z-index muito alto para garantir que fique acima de tudo */
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 1px;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .25rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+}
+
+.cid-dropdown.show,
+.doenca-dropdown.show {
+  display: block !important;
+}
+
+.cid-dropdown .dropdown-item,
+.doenca-dropdown .dropdown-item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  white-space: normal;
+  font-size: 0.9rem;
+  display: block;
+  width: 100%;
+  text-align: left;
+  color: #212529;
+  text-decoration: none;
+}
+
+.cid-dropdown .dropdown-item:hover,
+.doenca-dropdown .dropdown-item:hover,
+.cid-dropdown .dropdown-item:focus,
+.doenca-dropdown .dropdown-item:focus {
+  background-color: rgba(13, 110, 253, 0.1);
+  color: #0d6efd;
+}
+
+.cid-dropdown .cid-code,
+.doenca-dropdown .cid-code {
+  font-weight: bold;
+  margin-right: 0.5rem;
+  color: #0d6efd;
+}

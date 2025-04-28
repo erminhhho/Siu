@@ -10,15 +10,17 @@
           <div class="d-flex align-items-center">
             <div class="row g-2 flex-grow-1">
               <div class="col-md-3">
-                <div class="form-floating">
-                  <input type="text" class="form-control cid-input" id="cid1" placeholder="CID" name="cids[]" data-index="1">
+                <div class="form-floating position-relative">
+                  <input type="text" class="form-control cid-input" id="cid1" placeholder="CID" name="cids[]" data-index="1" autocomplete="off">
                   <label for="cid1">CID</label>
+                  <div class="cid-dropdown dropdown-menu shadow-sm w-100 d-none" id="cidDropdown1"></div>
                 </div>
               </div>
               <div class="col-md-9">
-                <div class="form-floating">
-                  <input type="text" class="form-control doenca-input" id="doenca1" placeholder="Doença" name="doencas[]" data-index="1">
+                <div class="form-floating position-relative">
+                  <input type="text" class="form-control doenca-input" id="doenca1" placeholder="Doença" name="doencas[]" data-index="1" autocomplete="off">
                   <label for="doenca1">Doença/Condição</label>
+                  <div class="doenca-dropdown dropdown-menu shadow-sm w-100 d-none" id="doencaDropdown1"></div>
                 </div>
               </div>
             </div>

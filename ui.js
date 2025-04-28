@@ -253,6 +253,12 @@ class SiuUI {
   // Inicializa página de incapacidade
   initIncapacity() {
     console.log('Inicializando página Incapacidade');
+
+    // Inicializar serviço CID se ainda não existir
+    if (!window.cidHelper) {
+      window.cidHelper = new CID();
+    }
+
     // Adicionar evento para botão de adicionar doença
     const doencasList = document.getElementById('doencasList');
     const btnAddDoenca = document.getElementById('addDoenca');
@@ -266,15 +272,17 @@ class SiuUI {
           <div class="d-flex align-items-center">
             <div class="row g-2 flex-grow-1">
               <div class="col-md-3">
-                <div class="form-floating">
-                  <input type="text" class="form-control cid-input" id="cid${newIndex}" placeholder="CID" name="cids[]" data-index="${newIndex}">
+                <div class="form-floating position-relative">
+                  <input type="text" class="form-control cid-input" id="cid${newIndex}" placeholder="CID" name="cids[]" data-index="${newIndex}" autocomplete="off">
                   <label for="cid${newIndex}">CID</label>
+                  <div class="cid-dropdown dropdown-menu shadow-sm w-100" id="cidDropdown${newIndex}" style="display:none;"></div>
                 </div>
               </div>
               <div class="col-md-9">
-                <div class="form-floating">
-                  <input type="text" class="form-control doenca-input" id="doenca${newIndex}" placeholder="Doença" name="doencas[]" data-index="${newIndex}">
+                <div class="form-floating position-relative">
+                  <input type="text" class="form-control doenca-input" id="doenca${newIndex}" placeholder="Doença" name="doencas[]" data-index="${newIndex}" autocomplete="off">
                   <label for="doenca${newIndex}">Doença/Condição</label>
+                  <div class="doenca-dropdown dropdown-menu shadow-sm w-100" id="doencaDropdown${newIndex}" style="display:none;"></div>
                 </div>
               </div>
             </div>
@@ -289,20 +297,59 @@ class SiuUI {
         newItem.querySelector('.remove-btn').addEventListener('click', () => {
           newItem.remove();
         });
+
+        // Inicializar autocomplete nos novos campos
+        setTimeout(() => {
+          window.cidHelper.setupFields(newIndex);
+        }, 0);
       });
     }
 
-    // Carregar dados salvos
-    const data = this.storage.get('incapacity');
-    if (data) {
-      // Implementar preenchimento dos campos com dados salvos
-    }
+    // Inicializar autocomplete para todos os campos existentes
+    document.querySelectorAll('.cid-input').forEach(input => {
+      const index = input.dataset.index;
+      if (index) {
+        setTimeout(() => {
+          window.cidHelper.setupFields(index);
+        }, 0);
+      }
+    });
 
-    // Configurar salvamento de formulário
-    const form = document.querySelector('form');
-    if (form) {
-      this.setupFormSaving(form, 'incapacity');
-    }
+    // Salvar ao navegar
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', () => {
+        this.saveIncapacityData();
+      });
+    });
+  }
+
+  // Salvar dados de incapacidade
+  saveIncapacityData() {
+    if (!this.storage.set) return;
+
+    const doencasElements = document.querySelectorAll('input[name="doencas[]"]');
+    const cidsElements = document.querySelectorAll('input[name="cids[]"]');
+    const observacoes = document.getElementById('observacoesIncapacidade')?.value || '';
+
+    const doencas = [];
+    doencasElements.forEach(el => {
+      if (el.value.trim()) {
+        doencas.push(el.value.trim());
+      }
+    });
+
+    const cids = [];
+    cidsElements.forEach(el => {
+      if (el.value.trim()) {
+        cids.push(el.value.trim());
+      }
+    });
+
+    this.storage.set('incapacity', {
+      doencas,
+      cids,
+      observacoes
+    });
   }
 
   // Inicializa página de provas
@@ -1049,7 +1096,7 @@ class SiuUI {
       `;
       perguntasContainer.insertBefore(botoesContainer, acordeao);
 
-      // Adicionar eventos aos botões
+      // Adiciona eventos aos botões
       const btnMostrarTodas = botoesContainer.querySelector('.btn-mostrar-todas-perguntas');
       if (btnMostrarTodas) {
         btnMostrarTodas.addEventListener('click', () => {
